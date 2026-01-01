@@ -14,6 +14,26 @@ echo "Memory: ${MIN_RAM} - ${MAX_RAM}"
 # Accept EULA
 echo "eula=true" > /server/eula.txt
 
+# Fix permissions for bind-mounted directories (needed on Linux hosts)
+fix_permissions() {
+    echo "Fixing permissions for bind-mounted directories..."
+
+    # Fix ownership of entire server directory for minecraft user
+    chown -R minecraft:minecraft /server 2>/dev/null || true
+
+    # Make plugin jars readable
+    if [ -d "/server/plugins" ]; then
+        chmod -R 755 /server/plugins 2>/dev/null || true
+        # Ensure jar files are readable
+        find /server/plugins -name "*.jar" -exec chmod 644 {} \; 2>/dev/null || true
+    fi
+
+    # Make logs directory writable
+    chmod -R 755 /server/logs 2>/dev/null || true
+}
+
+fix_permissions
+
 # Generate server.properties from environment variables
 generate_server_properties() {
     echo "Generating server.properties..."
@@ -287,7 +307,8 @@ if [ -d "/server/plugins" ] && [ "$(ls -A /server/plugins/*.jar 2>/dev/null)" ];
 fi
 
 # Start the server with optimized JVM flags (Aikar's flags)
-exec java \
+# Use gosu to drop privileges from root to minecraft user
+exec gosu minecraft java \
     -Xms${MIN_RAM} \
     -Xmx${MAX_RAM} \
     -XX:+UseG1GC \

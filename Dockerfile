@@ -12,7 +12,9 @@ ENV MAX_RAM=10G
 ENV EULA=true
 
 # Install dependencies
-RUN apk add --no-cache curl jq bash wget netcat-openbsd
+# - eudev-libs: fixes "Did not find udev library" warning (runtime library)
+# - gosu: for dropping privileges after fixing permissions
+RUN apk add --no-cache curl jq bash wget netcat-openbsd eudev-libs gosu
 
 # Create minecraft user and directories
 RUN addgroup -g 1000 minecraft && \
@@ -45,7 +47,8 @@ RUN chmod +x /server/start.sh
 # Set final permissions
 RUN chown -R minecraft:minecraft /server
 
-USER minecraft
+# Note: Container starts as root to fix bind-mount permissions on Linux hosts,
+# then drops to minecraft user via gosu in start.sh
 
 # Expose Minecraft port
 EXPOSE 25565
