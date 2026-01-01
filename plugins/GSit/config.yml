@@ -39,7 +39,7 @@ Crawl:
 
 # Player sit on player
 PlayerSit:
-  enabled: true
+  enabled: false
   max-players: 3
   range: 2
 
