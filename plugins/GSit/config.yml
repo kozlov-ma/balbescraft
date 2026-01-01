@@ -1,0 +1,89 @@
+# GSit Configuration
+# Plugin for /sit, /lay, /crawl, /bellyflop, /spin commands
+
+config-version: 9
+
+# Language
+Lang: en_US
+
+# Feature toggles
+Options:
+  sit-enabled: true
+  lay-enabled: true
+  crawl-enabled: true
+  bellyflop-enabled: true
+  spin-enabled: true
+
+# Sit settings
+Sit:
+  stairs-enabled: true
+  slabs-enabled: true
+  carpets-enabled: true
+  blocks-enabled: true
+  arrows-enabled: false
+  custom-blocks: []
+  max-distance: 2
+  sneak-required: true
+  empty-hand-required: false
+  heal-while-sitting: false
+  heal-amount: 0.5
+
+# Lay settings
+Lay:
+  beds-enabled: true
+  custom-blocks: []
+
+# Crawl settings
+Crawl:
+  bypass-blocks: false
+
+# Player sit on player
+PlayerSit:
+  enabled: true
+  max-players: 3
+  range: 2
+
+# World restrictions
+Worlds:
+  mode: BLACKLIST
+  list: []
+
+# Regions (WorldGuard)
+Regions:
+  enabled: false
+
+# Command aliases
+Commands:
+  sit:
+    - sit
+    - s
+  lay:
+    - lay
+    - lie
+    - sleep
+  crawl:
+    - crawl
+  bellyflop:
+    - bellyflop
+    - bf
+  spin:
+    - spin
+
+# Messages
+Messages:
+  sit-enabled: "&aYou are now sitting."
+  sit-disabled: "&cYou stopped sitting."
+  lay-enabled: "&aYou are now laying."
+  lay-disabled: "&cYou stopped laying."
+  crawl-enabled: "&aYou are now crawling."
+  crawl-disabled: "&cYou stopped crawling."
+  no-permission: "&cYou don't have permission to do this."
+  cannot-sit-here: "&cYou cannot sit here."
+  player-not-found: "&cPlayer not found."
+
+# Auto-stand
+Auto:
+  damage: true
+  move: false
+  teleport: true
+  world-change: true

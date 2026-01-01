@@ -21,6 +21,7 @@ services:
       - MAX_PLAYERS=${MAX_PLAYERS:-20}
       - DIFFICULTY=${DIFFICULTY:-normal}
       - GAMEMODE=${GAMEMODE:-survival}
+      - ONLINE_MODE=true
       - VIEW_DISTANCE=${VIEW_DISTANCE:-10}
       - SIMULATION_DISTANCE=${SIMULATION_DISTANCE:-10}
       - TZ=${TZ:-UTC}

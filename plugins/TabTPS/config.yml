@@ -1,0 +1,78 @@
+# TabTPS Configuration
+# Shows server performance info in tab list
+
+# General settings
+settings:
+  # Update interval in ticks (20 ticks = 1 second)
+  update-interval: 20
+
+# Tab list display
+tab:
+  enabled: true
+  # Header and footer of tab list
+  header:
+    enabled: true
+    content:
+      - "&6&lBalbescraft"
+      - "&7TPS: {tps} &8| &7MSPT: {mspt}"
+  footer:
+    enabled: true
+    content:
+      - "&7Players: &f{players}&7/&f{max_players}"
+      - "&7Memory: &f{memory_used}&7/&f{memory_max}"
+
+# TPS display format
+tps:
+  # Colors based on TPS value
+  colors:
+    good: "&a"      # 18-20 TPS
+    medium: "&e"    # 15-18 TPS
+    bad: "&c"       # Below 15 TPS
+  # TPS thresholds
+  thresholds:
+    good: 18.0
+    medium: 15.0
+
+# MSPT display format
+mspt:
+  colors:
+    good: "&a"      # Below 40ms
+    medium: "&e"    # 40-50ms
+    bad: "&c"       # Above 50ms
+  thresholds:
+    good: 40.0
+    medium: 50.0
+
+# Memory display
+memory:
+  enabled: true
+  format: "{used}MB/{max}MB"
+
+# Ping display
+ping:
+  enabled: true
+  colors:
+    good: "&a"      # Below 50ms
+    medium: "&e"    # 50-100ms
+    bad: "&c"       # Above 100ms
+  thresholds:
+    good: 50
+    medium: 100
+
+# Commands
+commands:
+  # /tps command
+  tps:
+    enabled: true
+    permission: "tabtps.tps"
+  # /mspt command
+  mspt:
+    enabled: true
+    permission: "tabtps.mspt"
+  # /ping command
+  ping:
+    enabled: true
+    permission: "tabtps.ping"
+
+# Permission to see the tab display
+permission: ""

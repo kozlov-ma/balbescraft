@@ -1,0 +1,29 @@
+# BeeChat Configuration
+# Local chat (100 blocks) and Global chat (! prefix)
+
+chat:
+  message-format: '<name> <yellow>→ <reset><message>'
+  channels:
+    - identifier: '!'
+      format: '<gold>(Global)</gold> <message_format>'
+
+    - identifier: ''
+      distance: 100
+      format: '<green>(Local)</green> <message_format>'
+
+  spy:
+    format: '<aqua>Spy</aqua> <channel_message>'
+    disable-on-leave: true
+
+tab-list:
+  enable: true
+  update-period: 200
+  header: '<br><gradient:yellow:gold>Balbescraft</gradient><br>'
+  footer: '<br>Players online: <green><server_online></green><br>'
+  player-name: '<name>'
+
+messages:
+  reload: '<green>The <gradient:yellow:gold>BeeChat</gradient> configuration has been reloaded'
+  not-player: '<red>This command can only be executed by a player'
+  spy-mode-enabled: '<aqua>Spy</aqua> mode <green>enabled</green>. Enter the command again to <red>disable</red>'
+  spy-mode-disabled: '<aqua>Spy</aqua> mode <red>disabled</red>'

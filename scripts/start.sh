@@ -29,7 +29,7 @@ max-players=${MAX_PLAYERS:-20}
 
 # World Settings
 level-name=world
-level-seed=${SEED:-}
+level-seed=${SEED:-3953848732970313148}
 level-type=minecraft\:normal
 generator-settings={}
 generate-structures=true
@@ -45,8 +45,8 @@ spawn-monsters=true
 spawn-npcs=true
 force-gamemode=false
 
-# Online Mode (false for offline/cracked clients)
-online-mode=false
+# Online Mode (true for authenticated Mojang accounts)
+online-mode=${ONLINE_MODE:-true}
 prevent-proxy-connections=false
 enforce-secure-profile=false
 
