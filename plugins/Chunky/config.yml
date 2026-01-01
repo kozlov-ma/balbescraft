@@ -1,0 +1,30 @@
+# Chunky Configuration
+# Pre-generation plugin for faster world loading
+# https://github.com/pop4959/Chunky
+
+language: en
+
+# How many chunks to generate per second
+# Higher = faster generation but more CPU/disk usage
+# Recommended: 20-50 for dedicated servers, 10-20 for shared hosting
+generation:
+  concurrency: 8
+  print-update-seconds: 5
+
+# Continue pre-generation tasks after server restart
+continue-on-restart: true
+
+# World defaults for pre-generation
+world-defaults:
+  # Center coordinates (0,0 = world spawn)
+  center-x: 0
+  center-z: 0
+  # Default radius in blocks (5000 = 10k x 10k area)
+  radius: 5000
+  # Shape: square or circle
+  shape: square
+  # Quiet mode (less console spam)
+  quiet: false
+
+# Progress saving interval (in chunks)
+progress-save-interval: 100

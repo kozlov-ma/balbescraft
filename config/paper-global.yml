@@ -14,14 +14,23 @@ messages:
   use-display-name-in-quit-message: false
 
 chunk-loading-basic:
+  # Increased rates for faster chunk loading
   player-max-chunk-generate-rate: -1.0
   player-max-chunk-load-rate: -1.0
   player-max-chunk-send-rate: -1.0
 
+chunk-system:
+  # Increase threads for faster chunk generation
+  # -1 = auto (half of physical cores), set higher for faster generation
+  io-threads: 4
+  worker-threads: 8
+
 chunk-loading-advanced:
   auto-config-send-distance: true
-  player-max-concurrent-chunk-generates: 0
-  player-max-concurrent-chunk-loads: 0
+  # Increased concurrency for faster chunk generation
+  # 0 = auto, higher = more concurrent operations per player
+  player-max-concurrent-chunk-generates: 16
+  player-max-concurrent-chunk-loads: 20
 
 collisions:
   enable-player-collisions: true
