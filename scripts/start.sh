@@ -51,8 +51,8 @@ prevent-proxy-connections=false
 enforce-secure-profile=false
 
 # Whitelist
-white-list=true
-enforce-whitelist=true
+white-list=${WHITELIST_ENABLED:-false}
+enforce-whitelist=${WHITELIST_ENABLED:-false}
 
 # Performance
 view-distance=${VIEW_DISTANCE:-10}
