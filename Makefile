@@ -30,7 +30,7 @@ JVM_FLAGS := -Xms$(MIN_RAM) -Xmx$(MAX_RAM) \
 	-Dusing.aikars.flags=https://mcflags.emc.gs \
 	-Daikars.new.flags=true
 
-.PHONY: help start stop restart setup backup clean logs status console
+.PHONY: help start stop restart setup backup clean logs status install-datapacks
 
 # Default target
 help:
@@ -46,6 +46,7 @@ help:
 	@echo "  make clean     - Remove generated server files (DESTRUCTIVE)"
 	@echo "  make logs      - Show recent server logs"
 	@echo "  make status    - Check if server is running"
+	@echo "  make install-datapacks - Install datapacks from datapacks/ to world/"
 	@echo ""
 
 # Initial setup
@@ -57,6 +58,7 @@ setup:
 	@if [ ! -f server.properties ]; then \
 		cp config/server.properties . 2>/dev/null || echo "server.properties will be generated on first run"; \
 	fi
+	@$(MAKE) install-datapacks
 	@echo ""
 	@echo "Setup complete! Run 'make start' to start the server."
 
@@ -166,4 +168,24 @@ status:
 	else \
 		echo "Server is NOT running"; \
 		rm -f server.pid 2>/dev/null || true; \
+	fi
+
+# Install datapacks from datapacks/ to world/datapacks/
+install-datapacks:
+	@mkdir -p world/datapacks
+	@if [ -d datapacks ] && [ "$$(ls -A datapacks 2>/dev/null | grep -v .gitkeep)" ]; then \
+		echo "Installing datapacks..."; \
+		for pack in datapacks/*; do \
+			if [ -e "$$pack" ] && [ "$$(basename $$pack)" != ".gitkeep" ]; then \
+				packname=$$(basename "$$pack"); \
+				if [ ! -e "world/datapacks/$$packname" ]; then \
+					cp -r "$$pack" world/datapacks/; \
+					echo "  Installed: $$packname"; \
+				else \
+					echo "  Already installed: $$packname"; \
+				fi; \
+			fi; \
+		done; \
+	else \
+		echo "No datapacks found in datapacks/"; \
 	fi
