@@ -1,0 +1,75 @@
+# Environment files (keep .env.example)
+.env
+
+# Logs
+logs/
+*.log
+
+# World data (stored in Docker volumes)
+world/
+world_nether/
+world_the_end/
+
+# Server generated files
+*.jar
+eula.txt
+usercache.json
+banned-ips.json.bak
+banned-players.json.bak
+whitelist.json.bak
+ops.json.bak
+server.properties.bak
+version_history.json
+
+# Plugin generated data (keep configs, exclude runtime data)
+plugins/*/data/
+plugins/*/cache/
+plugins/*/logs/
+plugins/*/*.db
+plugins/*/*.sqlite
+plugins/CoreProtect/database.db
+plugins/AuthMe/authme.db
+plugins/SkinsRestorer/Skins/
+plugins/bStats/
+
+# Paper generated files
+config/paper-global.yml.bak
+config/paper-world-defaults.yml.bak
+cache/
+libraries/
+versions/
+
+# Crash reports
+crash-reports/
+
+# IDE files
+.idea/
+*.iml
+.vscode/
+*.code-workspace
+.project
+.classpath
+.settings/
+
+# OS files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Temporary files
+*.tmp
+*.temp
+*.swp
+*~
+
+# Docker
+.docker/
+
+# Backup files
+*.bak
+*.backup
+backups/
