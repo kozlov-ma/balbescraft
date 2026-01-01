@@ -1,0 +1,116 @@
+# Paper Global Configuration
+# Configured for vanilla-like gameplay experience
+# https://docs.papermc.io/paper/reference/paper-global-configuration
+
+_version: 29
+
+messages:
+  no-permission: "<red>I'm sorry, but you do not have permission to perform this command. Please contact the server administrators if you believe that this is in error."
+  kick:
+    authentication-servers-down: "<lang:multiplayer.disconnect.authservers_down>"
+    connection-throttle: "Connection throttled! Please wait before reconnecting."
+    flying-player: "<lang:multiplayer.disconnect.flying>"
+    flying-vehicle: "<lang:multiplayer.disconnect.flying>"
+  use-display-name-in-quit-message: false
+
+chunk-loading-basic:
+  player-max-chunk-generate-rate: -1.0
+  player-max-chunk-load-rate: -1.0
+  player-max-chunk-send-rate: -1.0
+
+chunk-loading-advanced:
+  auto-config-send-distance: true
+  player-max-concurrent-chunk-generates: 0
+  player-max-concurrent-chunk-loads: 0
+
+collisions:
+  enable-player-collisions: true
+  send-full-pos-for-hard-colliding-entities: true
+
+commands:
+  suggest-player-names-when-null-tab-completions: true
+  time-command-affects-all-worlds: false
+
+console:
+  enable-brigadier-completions: true
+  enable-brigadier-highlighting: true
+  has-all-permissions: false
+
+item-validation:
+  book:
+    author: 8192
+    page: 16384
+    title: 8192
+  book-size:
+    page-max: 2560
+    total-multiplier: 0.98
+  display-name: 8192
+  lore-line: 8192
+  resolve-selectors-in-books: false
+
+logging:
+  deobfuscate-stacktraces: true
+
+misc:
+  chat-threads:
+    chat-executor-core-size: -1
+    chat-executor-max-size: -1
+  fix-far-end-terrain-generation: true
+  max-joins-per-tick: 5
+  region-file-cache-size: 256
+  use-alternative-luck-formula: false
+  use-dimension-type-for-custom-spawners: false
+
+packet-limiter:
+  all-packets:
+    action: KICK
+    interval: 7.0
+    max-packet-rate: 500.0
+  kick-message: "<red><lang:disconnect.exceeded_packet_rate>"
+  overrides:
+    minecraft:place_recipe:
+      action: DROP
+      interval: 4.0
+      max-packet-rate: 5.0
+
+player-auto-save:
+  max-per-tick: -1
+  rate: -1
+
+proxies:
+  bungee-cord:
+    online-mode: true
+  proxy-protocol: false
+  velocity:
+    enabled: false
+    online-mode: true
+    secret: ""
+
+scoreboards:
+  save-empty-scoreboard-teams: true
+  track-plugin-scoreboards: false
+
+spam-limiter:
+  incoming-packet-threshold: 300
+  recipe-spam-increment: 1
+  recipe-spam-limit: 20
+  tab-spam-increment: 1
+  tab-spam-limit: 500
+
+spark:
+  enabled: true
+  enable-immediately: false
+
+unsupported-settings:
+  # Keep these false for vanilla-like behavior
+  # (vanilla doesn't have these exploits working either)
+  allow-headless-pistons: false
+  allow-permanent-block-break-exploits: false
+  allow-piston-duplication: false
+  allow-unsafe-end-portal-teleportation: false
+  compression-format: ZLIB
+  perform-username-validation: true
+
+watchdog:
+  early-warning-delay: 10000
+  early-warning-every: 5000
