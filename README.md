@@ -4,9 +4,10 @@ A fully configured, dockerized PaperMC Minecraft server with vanilla-like experi
 
 ## Features
 
-- **PaperMC Server 1.21.1** - High-performance Minecraft server
+- **PaperMC Server 1.21.11** - High-performance Minecraft server
 - **Docker Compose** - Easy deployment with `docker compose up`
-- **Offline Mode Support** - Allows non-premium/cracked clients
+- **Online Mode** - Premium Minecraft accounts required
+- **Whitelist Enabled** - Only whitelisted players can join
 - **10GB RAM Default** - Optimized JVM flags (Aikar's flags)
 - **Vanilla-like Experience** - Configured per PaperMC docs
 - **Configurable** - Seeds, whitelist, world data via Docker volumes
@@ -94,7 +95,7 @@ SEED=your_custom_seed_here
    ]
    ```
 
-   For offline mode, UUIDs are generated from `OfflinePlayer:<playername>`.
+   Get player UUIDs from https://mcuuid.net/ or similar services.
 
 ### Operators (Admins)
 
@@ -251,13 +252,14 @@ MAX_RAM=2G
 
 1. Verify port 25565 is not blocked by firewall
 2. Check server is running: `docker compose ps`
-3. For offline mode, ensure `online-mode=false` in server.properties
+3. Make sure you're using a premium Minecraft account (online-mode is enabled)
+4. Make sure your username is in `config/whitelist.json`
 
 ### Plugin not loading
 
 1. Verify the plugin JAR exists in `plugins/`
 2. Check for errors in `logs/latest.log`
-3. Ensure plugin is compatible with Minecraft 1.21.1
+3. Ensure plugin is compatible with Minecraft 1.21.11
 
 ## File Structure
 

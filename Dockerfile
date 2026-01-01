@@ -1,7 +1,7 @@
 FROM eclipse-temurin:21-jre-alpine
 
 # Build arguments
-ARG MINECRAFT_VERSION=1.21.1
+ARG MINECRAFT_VERSION=1.21.11
 ARG PAPER_BUILD=latest
 
 # Environment variables

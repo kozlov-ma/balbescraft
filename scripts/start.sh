@@ -45,14 +45,14 @@ spawn-monsters=true
 spawn-npcs=true
 force-gamemode=false
 
-# Online Mode (false for offline/cracked clients)
-online-mode=false
+# Online Mode (true for premium accounts)
+online-mode=true
 prevent-proxy-connections=false
-enforce-secure-profile=false
+enforce-secure-profile=true
 
 # Whitelist
-white-list=${WHITELIST_ENABLED:-false}
-enforce-whitelist=${WHITELIST_ENABLED:-false}
+white-list=true
+enforce-whitelist=true
 
 # Performance
 view-distance=${VIEW_DISTANCE:-10}
