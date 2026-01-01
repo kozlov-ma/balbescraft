@@ -1,0 +1,1 @@
+scoreboard players set @a sovereignTag 0

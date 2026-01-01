@@ -1,0 +1,6 @@
+{
+	"values": [
+		"hidetag:initialize",
+		"hidetag:on_tick"
+	]
+}
