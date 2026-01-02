@@ -104,6 +104,11 @@ Hooks:
 Protection:
     enableProtection: true
     protectedAreas: []
+    geoIpDatabase: ''
+    countries: []
+    countriesBlacklist: []
+    enableProtectionCountry: false
+    enableCountryWhitelist: false
 
 Purge:
     enabled: false
