@@ -1,0 +1,54 @@
+# AuthMe Messages - English
+# Custom messages for Balbescraft server
+
+# Registration
+registration:
+  register_request: '&6Welcome to Balbescraft! &ePlease register with: &b/register <password> <password>'
+  register_success: '&aYou have been registered successfully!'
+  password_confirm_error: '&cPasswords do not match!'
+  
+# Login
+login:
+  login_request: '&6Welcome back! &ePlease login with: &b/login <password>'
+  login_success: '&aSuccessfully logged in!'
+  wrong_password: '&cWrong password!'
+  
+# Session
+session:
+  session_reconnect: '&aSession restored. Welcome back!'
+  
+# Errors
+error:
+  already_registered: '&cYou are already registered!'
+  not_registered: '&cYou are not registered. Use &b/register <password> <password>'
+  already_logged_in: '&cYou are already logged in!'
+  max_registration: '&cMaximum registrations reached for this IP!'
+  logged_in_elsewhere: '&cYou are already logged in from another location!'
+  kicked_admin: '&cYou have been kicked by an administrator.'
+  
+# Timeouts  
+timeout:
+  timeout_error: '&cLogin timed out. Please reconnect and try again.'
+  
+# Password
+password:
+  password_too_short: '&cPassword is too short! Minimum length is 6 characters.'
+  password_too_long: '&cPassword is too long! Maximum length is 30 characters.'
+  password_unsafe: '&cThat password is not safe. Please choose a different one.'
+  password_changed: '&aPassword changed successfully!'
+  
+# Misc
+misc:
+  logout_success: '&aLogged out successfully!'
+  accounts_owned: '&7You have &e%count% &7accounts registered.'
+  
+# Captcha (if enabled)
+captcha:
+  captcha_wrong: '&cWrong captcha! Please type: &b%captcha%'
+  captcha_success: '&aCaptcha solved!'
+  
+# Kick messages
+kick:
+  not_logged_in: 'You did not login in time. Please reconnect.'
+  wrong_password_kick: 'Too many failed login attempts.'
+  antibot: 'AntiBot protection - Please wait and reconnect.'

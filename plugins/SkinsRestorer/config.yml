@@ -1,0 +1,89 @@
+# SkinsRestorer Configuration
+# Allows players to have skins on offline-mode servers
+# https://skinsrestorer.net/docs
+
+# Database settings
+database:
+  enabled: false
+  host: localhost
+  port: 3306
+  database: skinsrestorer
+  username: root
+  password: ''
+  maxPoolSize: 10
+  tablePrefix: sr_
+
+# Storage type: FILE, MYSQL, MARIADB
+storage:
+  type: FILE
+  # Cache skins locally for faster loading
+  cacheExpiry: 72 # hours
+
+# Commands
+commands:
+  # Allow players to set their own skin
+  skinWithoutPerm: true
+  # Cooldown between skin changes (in seconds)
+  skinChangeCooldown: 30
+  # Per skin permissions (if true, requires skinsrestorer.skin.<skinname>)
+  perSkinPermissions: false
+  # Disabled skins (prevent players from using these)
+  disabledSkins: []
+
+# Skins settings
+skins:
+  # Default skin for new players (leave empty for none)
+  defaultSkin: ''
+  # Automatically restore skin on join
+  restoreOnJoin: true
+  # Allow custom URL skins
+  customSkins: true
+  # Allowed skin hosts (for URL skins)
+  allowedSkinHosts:
+    - mineskin.org
+    - minecraft.net
+    - crafatar.com
+  # Try to get skin from Mojang based on player name
+  fetchFromMojang: true
+  # How long to cache Mojang skin lookups (in minutes)
+  mojangCacheTime: 60
+
+# Proxy settings (for BungeeCord/Velocity - not needed for standalone)
+proxy:
+  enabled: false
+
+# API settings
+api:
+  # MineTools API (backup when Mojang is down)
+  mineToolsEnabled: true
+  # MineSkin API for custom URL skins
+  mineSkinEnabled: true
+
+# Login integration
+loginIntegration:
+  # Delay skin application after login (useful with AuthMe)
+  # Set to -1 to disable, or milliseconds to wait
+  applyDelay: 500
+  # Supported: AUTHME, LOGINSECURITY, NLOGIN, AUTO
+  type: AUTHME
+
+# Performance
+performance:
+  # Async skin fetching (recommended: true)
+  asyncSkinFetching: true
+  # Number of threads for skin operations
+  skinFetchThreads: 3
+
+# Messages
+messages:
+  language: en
+  # Use MiniMessage format
+  useMiniMessage: true
+
+# Debug mode
+debug: false
+
+# Updater
+updater:
+  enabled: true
+  checkInterval: 72 # hours

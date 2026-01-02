@@ -39,9 +39,20 @@ plugins/*/logs/
 plugins/*/*.db
 plugins/*/*.sqlite
 plugins/CoreProtect/database.db
-plugins/AuthMe/authme.db
-plugins/SkinsRestorer/Skins/
 plugins/bStats/
+
+# AuthMe - keep config, ignore database and player data
+plugins/AuthMe/authme.db
+plugins/AuthMe/AuthMe.db
+plugins/AuthMe/*.db
+plugins/AuthMe/backups/
+plugins/AuthMe/playerdata/
+
+# SkinsRestorer - keep config, ignore cached skins and player data
+plugins/SkinsRestorer/Skins/
+plugins/SkinsRestorer/players/
+plugins/SkinsRestorer/cache/
+plugins/SkinsRestorer/*.db
 
 # Paper/Spigot/Bukkit generated configs in root
 # (we keep our templates in config/)

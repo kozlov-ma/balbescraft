@@ -1,0 +1,137 @@
+# AuthMe Reloaded Configuration
+# Secure authentication for offline-mode servers
+# https://github.com/AuthMe/AuthMeReloaded
+
+DataSource:
+  # Database backend: SQLITE, MYSQL, POSTGRESQL
+  backend: SQLITE
+  mySQLHost: 127.0.0.1
+  mySQLPort: '3306'
+  mySQLUsername: authme
+  mySQLPassword: ''
+  mySQLDatabase: authme
+  mySQLTablename: authme
+  mySQLColumnGroup: ''
+  mySQLRealName: realname
+  poolSize: 10
+  
+settings:
+  sessions:
+    enabled: true
+    timeout: 60
+    
+  registration:
+    enabled: true
+    force: true
+    forceKickMessage: 'Please register with /register <password> <password>'
+    
+  # Security settings
+  security:
+    minPasswordLength: 6
+    maxPasswordLength: 30
+    passwordMaxLoginPerIp: 2
+    maxJoinPerIp: 2
+    allowFloodgate: false
+    
+  # Restrictions before login
+  restrictions:
+    allowMovement: false
+    allowedMovementRadius: 0
+    allowCommands: []
+    allowedCommandsBeforeLogin:
+      - /login
+      - /register
+      - /l
+      - /reg
+    protectInventoryBeforeLogIn: true
+    teleportUnAuthedToSpawn: false
+    kickNonRegistered: false
+    kickOnWrongPassword: true
+    maxLoginTry: 5
+    kickAfterTimeoutBeforeLogin: 60
+    displayOtherAccounts: true
+    maxRegPerIp: 3
+    
+  # Login/register timeouts (in seconds)
+  timeout: 60
+  
+  # How long until session expires (in minutes)
+  sessionTimeout: 60
+
+GameHook:
+  # Disable certain actions until player is authenticated
+  disableSocialSpy: true
+  disableEssentialsGodMode: true
+
+# Hashing algorithm for passwords
+# Recommended: BCRYPT or ARGON2
+security:
+  passwordHash: BCRYPT
+  doubleMD5SaltLength: 8
+  bCryptLog2Rounds: 12
+  
+  # Stop login/register brute force attacks
+  tempbanLength: 480
+  maxLoginTry: 5
+  maxRegPerEmail: 1
+  
+  # Anti-bot protection
+  antiBotSensibility: 8
+  antiBotDuration: 10
+  
+# Messages language
+messagesLanguage: en
+
+# Spawn teleport settings  
+spawn:
+  teleportToSpawnOnLogin: false
+  teleportToSpawnOnRegister: false
+  teleportToSpawnOnFirstLogin: true
+
+# Hooks
+hooks:
+  # Use Essentials spawn if available
+  useEssentialsSpawn: false
+  multiverse: false
+  # Disable Essentials socialspy before login
+  disableSocialSpy: true
+
+# Protection
+protection:
+  # Protect the player from being damaged before login
+  protectBeforeLogin: true
+  # Hide inventory before login
+  hideInventory: true
+  # Deny certain actions before authentication
+  denyTabComplete: true
+  denyChat: true
+  denyPortals: true
+
+# Visual effects
+visual:
+  # Blind the player until they login
+  blindBeforeLogin: true
+  # Hide player from others until logged in
+  hideFromUnloggedUsers: false
+
+# Email recovery (disabled by default - configure SMTP if needed)
+Email:
+  mailSMTP: smtp.gmail.com
+  mailPort: 465
+  mailAccount: ''
+  mailPassword: ''
+  mailSenderName: 'Balbescraft Server'
+  mailAddress: ''
+  useTls: true
+  recovery: false
+  
+# Purge settings - remove old accounts
+purge:
+  enabled: false
+  daysBeforePurge: 60
+  
+# Backup settings
+BackupSystem:
+  enabled: true
+  onPluginStart: false
+  onPluginStop: true
